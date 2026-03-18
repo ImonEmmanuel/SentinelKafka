@@ -49,15 +49,20 @@ using SentinelKafka.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Register SentinelKafka dependencies
-builder.Services.AddKafkaProducer(options =>
+// Option A: Configuration via appsettings.json
+builder.Services.AddSentinelKafka(options => 
+    builder.Configuration.GetSection("SentinelKafka").Bind(options));
+
+// Option B: Manual Code-Based Configuration
+builder.Services.AddSentinelKafka(options =>
 {
-    // Bind from appsettings.json
-    builder.Configuration.GetSection("SentinelKafka").Bind(options);
-    
-    // Or configure them manually:
-    // options.IsMsk = false;
-    // options.BootstrapServers = "localhost:9092";
+    options.IsMsk = true;
+    options.AccessKey = "your-access-key";
+    options.SecretKey = "your-secret-key";
+    options.Region = "us-east-1";
+    options.BootstrapServers = "localhost:9092";
+    options.MessageSendMaxRetries = 3;
+    options.Topics = new Dictionary<string, string> { { "OrdersTopicAlias", "prod-orders-topic" } };
 });
 ```
 

@@ -6,13 +6,12 @@ namespace SentinelKafka.Extensions;
 
 public static class SentinelKafkaServiceCollectionExtensions
 {
-    public static IServiceCollection AddKafkaProducer(this IServiceCollection services, Action<KafkaOptions> configureOptions)
+    public static IServiceCollection AddSentinelKafka(this IServiceCollection services, Action<KafkaOptions> configureOptions)
     {
         services.AddOptions<KafkaOptions>()
             .Configure(configureOptions)
             .PostConfigure(options => options.Validate());
         
-        // Register Core Services
         services.AddSingleton<KafkaPolicyFactory>();
         services.AddSingleton<IKafkaProducer, KafkaProducer>();
         services.AddSingleton<IResilientKafkaProducer, ResilientKafkaProducer>();
