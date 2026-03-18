@@ -4,7 +4,7 @@ A resilient .NET SDK for Confluent Kafka integration, designed for easy configur
 ## Features
 - **Resilient Producer**: Built-in retries, circuit breakers, and timeouts via Polly.
 - **AWS MSK Support**: Natively integrates with Amazon MSK using `AWS.MSK.Auth` and IAM credentials.
-- **Easy DI Setup**: Use `AddKafkaProducer()` to integrate cleanly into `IServiceCollection`.
+- **Easy DI Setup**: Use `AddSentinelKafka()` to integrate cleanly into `IServiceCollection`.
 - **SOLID Design**: Clean separation of Extensions and Messaging logic.
 
 ## Installation
