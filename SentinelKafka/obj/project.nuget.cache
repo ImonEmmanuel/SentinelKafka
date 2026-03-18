@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "RymBfe04I9A=",
+  "success": true,
+  "projectFilePath": "/Users/macbookpro/Desktop/Repo/MTNNigeria/SentinelKafka/SentinelKafka/SentinelKafka.csproj",
+  "expectedPackageFiles": [
+    "/Users/macbookpro/.nuget/packages/aws.msk.auth/1.1.2/aws.msk.auth.1.1.2.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/awssdk.core/4.0.3.18/awssdk.core.4.0.3.18.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/awssdk.securitytoken/4.0.1.5/awssdk.securitytoken.4.0.1.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/confluent.kafka/2.13.2/confluent.kafka.2.13.2.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/librdkafka.redist/2.13.2/librdkafka.redist.2.13.2.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.configuration/10.0.5/microsoft.extensions.configuration.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.5/microsoft.extensions.configuration.abstractions.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.configuration.binder/10.0.5/microsoft.extensions.configuration.binder.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.5/microsoft.extensions.dependencyinjection.abstractions.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.diagnostics.abstractions/10.0.5/microsoft.extensions.diagnostics.abstractions.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.fileproviders.abstractions/10.0.5/microsoft.extensions.fileproviders.abstractions.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.hosting.abstractions/10.0.5/microsoft.extensions.hosting.abstractions.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.logging.abstractions/10.0.5/microsoft.extensions.logging.abstractions.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.options/10.0.5/microsoft.extensions.options.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.options.configurationextensions/10.0.5/microsoft.extensions.options.configurationextensions.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/microsoft.extensions.primitives/10.0.5/microsoft.extensions.primitives.10.0.5.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/polly/8.6.6/polly.8.6.6.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/polly.core/8.6.6/polly.core.8.6.6.nupkg.sha512",
+    "/Users/macbookpro/.nuget/packages/system.diagnostics.diagnosticsource/10.0.5/system.diagnostics.diagnosticsource.10.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

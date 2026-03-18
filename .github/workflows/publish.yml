@@ -1,0 +1,33 @@
+name: Publish NuGet Package
+
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore SentinelKafka/SentinelKafka.csproj
+
+      - name: Build
+        run: dotnet build SentinelKafka/SentinelKafka.csproj -c Release --no-restore
+
+      - name: Pack
+        run: dotnet pack SentinelKafka/SentinelKafka.csproj -c Release --no-build -o out
+
+      - name: Publish to NuGet
+        run: dotnet nuget push out/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate

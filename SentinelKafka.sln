@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentinelKafka", "SentinelKafka\SentinelKafka.csproj", "{9CE0CBE5-C12E-47B5-A011-8B46C776A2E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentinelKafka.Tests", "SentinelKafka.Tests\SentinelKafka.Tests.csproj", "{B7A34234-FAF4-4A90-A0AE-D291C0291F39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CE0CBE5-C12E-47B5-A011-8B46C776A2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE0CBE5-C12E-47B5-A011-8B46C776A2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE0CBE5-C12E-47B5-A011-8B46C776A2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE0CBE5-C12E-47B5-A011-8B46C776A2E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A34234-FAF4-4A90-A0AE-D291C0291F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A34234-FAF4-4A90-A0AE-D291C0291F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A34234-FAF4-4A90-A0AE-D291C0291F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A34234-FAF4-4A90-A0AE-D291C0291F39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
