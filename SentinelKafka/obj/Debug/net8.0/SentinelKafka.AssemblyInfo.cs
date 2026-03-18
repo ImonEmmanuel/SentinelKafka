@@ -10,12 +10,14 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Peerpay")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Imonmion Emmanuel Bright")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyDescriptionAttribute("Peerpay Digital Assest Internal Backend Services SDK")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("A resilient, enterprise-grade open-source .NET SDK for Confluent Kafka integratio" +
+    "n, featuring AWS MSK support, Polly resilience, and automated dead-letter queue " +
+    "routing.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3a2d85730cfad9df7312dfc02538a7118ce3e06")]
-[assembly: System.Reflection.AssemblyProductAttribute("InternalSDK")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a23af27856974c130c0294cc99db4b5ddff8e2ba")]
+[assembly: System.Reflection.AssemblyProductAttribute("SentinelKafka SDK")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SentinelKafka")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/ImonEmmanuel/SentinelKafka.git")]

@@ -2,6 +2,23 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "Apache.Avro/1.12.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.CodeDom": "8.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Avro.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Avro.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "AWS.MSK.Auth/1.1.2": {
         "type": "package",
         "dependencies": {
@@ -61,10 +78,78 @@
           }
         }
       },
+      "Confluent.SchemaRegistry/2.13.2": {
+        "type": "package",
+        "dependencies": {
+          "Confluent.Kafka": "2.13.2",
+          "Microsoft.Extensions.Caching.Memory": "8.0.1",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Confluent.SchemaRegistry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Confluent.SchemaRegistry.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Confluent.SchemaRegistry.Serdes.Avro/2.13.2": {
+        "type": "package",
+        "dependencies": {
+          "Apache.Avro": "1.12.1",
+          "Confluent.Kafka": "2.13.2",
+          "Confluent.SchemaRegistry": "2.13.2"
+        },
+        "compile": {
+          "lib/net8.0/Confluent.SchemaRegistry.Serdes.Avro.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Confluent.SchemaRegistry.Serdes.Avro.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Confluent.SchemaRegistry.Serdes.Protobuf/2.13.2": {
+        "type": "package",
+        "dependencies": {
+          "Confluent.Kafka": "2.13.2",
+          "Confluent.SchemaRegistry": "2.13.2",
+          "Google.Protobuf": "3.26.1",
+          "protobuf-net.Reflection": "3.2.12"
+        },
+        "compile": {
+          "lib/net8.0/Confluent.SchemaRegistry.Serdes.Protobuf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Confluent.SchemaRegistry.Serdes.Protobuf.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "coverlet.collector/6.0.0": {
         "type": "package",
         "build": {
           "build/netstandard1.0/coverlet.collector.targets": {}
+        }
+      },
+      "Google.Protobuf/3.29.3": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       },
       "librdkafka.redist/2.13.2": {
@@ -186,6 +271,48 @@
         "build": {
           "build/netstandard2.0/Microsoft.CodeCoverage.props": {},
           "build/netstandard2.0/Microsoft.CodeCoverage.targets": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "Microsoft.Extensions.Configuration/10.0.5": {
@@ -806,6 +933,38 @@
           }
         }
       },
+      "protobuf-net.Core/3.2.12": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.Immutable": "7.0.0"
+        },
+        "compile": {
+          "lib/net6.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/protobuf-net.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "protobuf-net.Reflection/3.2.12": {
+        "type": "package",
+        "dependencies": {
+          "protobuf-net.Core": "3.2.12"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/protobuf-net.Reflection.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -1007,6 +1166,22 @@
           "lib/netstandard1.1/System.Buffers.dll": {}
         }
       },
+      "System.CodeDom/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.CodeDom.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.CodeDom.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1041,6 +1216,22 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Collections.Concurrent.dll": {}
+        }
+      },
+      "System.Collections.Immutable/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "System.Console/4.3.0": {
@@ -2125,6 +2316,10 @@
           "AWS.MSK.Auth": "1.1.2",
           "AWSSDK.Core": "4.0.3.18",
           "Confluent.Kafka": "2.13.2",
+          "Confluent.SchemaRegistry": "2.13.2",
+          "Confluent.SchemaRegistry.Serdes.Avro": "2.13.2",
+          "Confluent.SchemaRegistry.Serdes.Protobuf": "2.13.2",
+          "Google.Protobuf": "3.29.3",
           "Microsoft.Extensions.Hosting.Abstractions": "10.0.5",
           "Microsoft.Extensions.Logging.Abstractions": "10.0.5",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "10.0.5",
@@ -2140,6 +2335,24 @@
     }
   },
   "libraries": {
+    "Apache.Avro/1.12.1": {
+      "sha512": "OTn0ShyXdMnbJ/1LLNOjvQhwE6Q8LiNtM9B/k51UJa7viuotKhDEnmLIof87XfjUt2UJZFhjF366+B3cKs3k4g==",
+      "type": "package",
+      "path": "apache.avro/1.12.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "apache.avro.1.12.1.nupkg.sha512",
+        "apache.avro.nuspec",
+        "lib/netstandard2.0/Avro.dll",
+        "lib/netstandard2.0/Avro.xml",
+        "lib/netstandard2.1/Avro.dll",
+        "lib/netstandard2.1/Avro.xml",
+        "logo.png"
+      ]
+    },
     "AWS.MSK.Auth/1.1.2": {
       "sha512": "y7D2rcE3IDb1GfC37iuLDsGbkPEmFM86oLJYrRJ7Ap6fKozKTvzIjP05rDCUJ7MLFhC9kpSklukR05O5hrDaeg==",
       "type": "package",
@@ -2229,6 +2442,69 @@
         "lib/netstandard2.0/Confluent.Kafka.xml"
       ]
     },
+    "Confluent.SchemaRegistry/2.13.2": {
+      "sha512": "YuLqhxYP/VaEvNP976dgX3kFK0fr55eSJKOm520lb4edAO/Qrf+x+8Z9k5sY6LPdHZcs1Ug0Ic0friSYP3X9wg==",
+      "type": "package",
+      "path": "confluent.schemaregistry/2.13.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "confluent-logo.png",
+        "confluent.schemaregistry.2.13.2.nupkg.sha512",
+        "confluent.schemaregistry.nuspec",
+        "lib/net462/Confluent.SchemaRegistry.dll",
+        "lib/net462/Confluent.SchemaRegistry.xml",
+        "lib/net6.0/Confluent.SchemaRegistry.dll",
+        "lib/net6.0/Confluent.SchemaRegistry.xml",
+        "lib/net8.0/Confluent.SchemaRegistry.dll",
+        "lib/net8.0/Confluent.SchemaRegistry.xml",
+        "lib/netstandard2.0/Confluent.SchemaRegistry.dll",
+        "lib/netstandard2.0/Confluent.SchemaRegistry.xml"
+      ]
+    },
+    "Confluent.SchemaRegistry.Serdes.Avro/2.13.2": {
+      "sha512": "6ahht+4pJgv5OJfl4NLKgOkf7Rj2w1Ry2lgTXqTzcDSG+EQ4iIwlg6nCfm77CP8JqVwR56tY0IbxnQmIyX3Iow==",
+      "type": "package",
+      "path": "confluent.schemaregistry.serdes.avro/2.13.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "confluent-logo.png",
+        "confluent.schemaregistry.serdes.avro.2.13.2.nupkg.sha512",
+        "confluent.schemaregistry.serdes.avro.nuspec",
+        "lib/net462/Confluent.SchemaRegistry.Serdes.Avro.dll",
+        "lib/net462/Confluent.SchemaRegistry.Serdes.Avro.xml",
+        "lib/net6.0/Confluent.SchemaRegistry.Serdes.Avro.dll",
+        "lib/net6.0/Confluent.SchemaRegistry.Serdes.Avro.xml",
+        "lib/net8.0/Confluent.SchemaRegistry.Serdes.Avro.dll",
+        "lib/net8.0/Confluent.SchemaRegistry.Serdes.Avro.xml",
+        "lib/netstandard2.0/Confluent.SchemaRegistry.Serdes.Avro.dll",
+        "lib/netstandard2.0/Confluent.SchemaRegistry.Serdes.Avro.xml"
+      ]
+    },
+    "Confluent.SchemaRegistry.Serdes.Protobuf/2.13.2": {
+      "sha512": "6LbEelfFbvMnXL46uyE+s6VEPW78Iw5kHoAkV5ZtYd+QlEGu+alNeYpdGR0TaAHNnLAYnSU6o8ET7Xa6lD1pnA==",
+      "type": "package",
+      "path": "confluent.schemaregistry.serdes.protobuf/2.13.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "confluent-logo.png",
+        "confluent.schemaregistry.serdes.protobuf.2.13.2.nupkg.sha512",
+        "confluent.schemaregistry.serdes.protobuf.nuspec",
+        "lib/net462/Confluent.SchemaRegistry.Serdes.Protobuf.dll",
+        "lib/net462/Confluent.SchemaRegistry.Serdes.Protobuf.xml",
+        "lib/net6.0/Confluent.SchemaRegistry.Serdes.Protobuf.dll",
+        "lib/net6.0/Confluent.SchemaRegistry.Serdes.Protobuf.xml",
+        "lib/net8.0/Confluent.SchemaRegistry.Serdes.Protobuf.dll",
+        "lib/net8.0/Confluent.SchemaRegistry.Serdes.Protobuf.xml",
+        "lib/netstandard2.0/Confluent.SchemaRegistry.Serdes.Protobuf.dll",
+        "lib/netstandard2.0/Confluent.SchemaRegistry.Serdes.Protobuf.xml"
+      ]
+    },
     "coverlet.collector/6.0.0": {
       "sha512": "tW3lsNS+dAEII6YGUX/VMoJjBS1QvsxqJeqLaJXub08y1FSjasFPtQ4UBUsudE9PNrzLjooClMsPtY2cZLdXpQ==",
       "type": "package",
@@ -2280,6 +2556,29 @@
         "coverlet-icon.png",
         "coverlet.collector.6.0.0.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "Google.Protobuf/3.29.3": {
+      "sha512": "t7nZFFUFwigCwZ+nIXHDLweXvwIpsOXi+P7J7smPT/QjI3EKxnCzTQOhBqyEh6XEzc/pNH+bCFOOSjatrPt6Tw==",
+      "type": "package",
+      "path": "google.protobuf/3.29.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "google.protobuf.3.29.3.nupkg.sha512",
+        "google.protobuf.nuspec",
+        "lib/net45/Google.Protobuf.dll",
+        "lib/net45/Google.Protobuf.pdb",
+        "lib/net45/Google.Protobuf.xml",
+        "lib/net5.0/Google.Protobuf.dll",
+        "lib/net5.0/Google.Protobuf.pdb",
+        "lib/net5.0/Google.Protobuf.xml",
+        "lib/netstandard1.1/Google.Protobuf.dll",
+        "lib/netstandard1.1/Google.Protobuf.pdb",
+        "lib/netstandard1.1/Google.Protobuf.xml",
+        "lib/netstandard2.0/Google.Protobuf.dll",
+        "lib/netstandard2.0/Google.Protobuf.pdb",
+        "lib/netstandard2.0/Google.Protobuf.xml"
       ]
     },
     "librdkafka.redist/2.13.2": {
@@ -2394,6 +2693,66 @@
         "lib/netcoreapp3.1/Microsoft.VisualStudio.CodeCoverage.Shim.dll",
         "microsoft.codecoverage.17.8.0.nupkg.sha512",
         "microsoft.codecoverage.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+      "sha512": "3KuSxeHoNYdxVYfg2IRZCThcrlJ1XJqIXkAWikCsbm5C/bCjv7G0WoKDyuR98Q+T607QT2Zl5GsbGRkENcV2yQ==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.abstractions/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Caching.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Caching.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.caching.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Caching.Memory/8.0.1": {
+      "sha512": "HFDnhYLccngrzyGgHkjEDU5FMLn4MpOsr5ElgsBMC4yx6lJh4jeWO7fHS8+TXPq+dgxCmUa/Trl8svObmwW4QA==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.memory/8.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Caching.Memory.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Caching.Memory.targets",
+        "lib/net462/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/net462/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/net6.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/net6.0/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/net7.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/net7.0/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/net8.0/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.xml",
+        "microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
+        "microsoft.extensions.caching.memory.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.Configuration/10.0.5": {
@@ -3160,6 +3519,42 @@
         "polly.core.nuspec"
       ]
     },
+    "protobuf-net.Core/3.2.12": {
+      "sha512": "8kpui+OKAr/IzFfdvkqGcIO859riNT1bp5hLKudY55lHd9oS3daHkvA9XyXiC+yGLRpg+XCc+ZUkNA8u8sXJTw==",
+      "type": "package",
+      "path": "protobuf-net.core/3.2.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/protobuf-net.Core.dll",
+        "lib/net462/protobuf-net.Core.xml",
+        "lib/net6.0/protobuf-net.Core.dll",
+        "lib/net6.0/protobuf-net.Core.xml",
+        "lib/netstandard2.0/protobuf-net.Core.dll",
+        "lib/netstandard2.0/protobuf-net.Core.xml",
+        "lib/netstandard2.1/protobuf-net.Core.dll",
+        "lib/netstandard2.1/protobuf-net.Core.xml",
+        "protobuf-net.core.3.2.12.nupkg.sha512",
+        "protobuf-net.core.nuspec",
+        "protobuf-net.png"
+      ]
+    },
+    "protobuf-net.Reflection/3.2.12": {
+      "sha512": "bpNTENWPqP2mx1sJJ5C6qZ2xP+f/E3dQF9MYY+xZ+RHxe3sLg+sPyBSCcJDTCY0e4dVIwQ/02gS8m4tVClDoKQ==",
+      "type": "package",
+      "path": "protobuf-net.reflection/3.2.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/protobuf-net.Reflection.dll",
+        "lib/net462/protobuf-net.Reflection.xml",
+        "lib/netstandard2.0/protobuf-net.Reflection.dll",
+        "lib/netstandard2.0/protobuf-net.Reflection.xml",
+        "protobuf-net.png",
+        "protobuf-net.reflection.3.2.12.nupkg.sha512",
+        "protobuf-net.reflection.nuspec"
+      ]
+    },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "sha512": "HdSSp5MnJSsg08KMfZThpuLPJpPwE5hBXvHwoKWosyHHfe8Mh5WKT0ylEOf6yNzX6Ngjxe4Whkafh5q7Ymac4Q==",
       "type": "package",
@@ -3454,6 +3849,35 @@
         "system.buffers.nuspec"
       ]
     },
+    "System.CodeDom/8.0.0": {
+      "sha512": "WTlRjL6KWIMr/pAaq3rYqh0TJlzpouaQ/W1eelssHgtlwHAH25jXTkUphTYx9HaIIf7XA6qs/0+YhtLEQRkJ+Q==",
+      "type": "package",
+      "path": "system.codedom/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.CodeDom.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.CodeDom.targets",
+        "lib/net462/System.CodeDom.dll",
+        "lib/net462/System.CodeDom.xml",
+        "lib/net6.0/System.CodeDom.dll",
+        "lib/net6.0/System.CodeDom.xml",
+        "lib/net7.0/System.CodeDom.dll",
+        "lib/net7.0/System.CodeDom.xml",
+        "lib/net8.0/System.CodeDom.dll",
+        "lib/net8.0/System.CodeDom.xml",
+        "lib/netstandard2.0/System.CodeDom.dll",
+        "lib/netstandard2.0/System.CodeDom.xml",
+        "system.codedom.8.0.0.nupkg.sha512",
+        "system.codedom.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Collections/4.3.0": {
       "sha512": "3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
       "type": "package",
@@ -3588,6 +4012,34 @@
         "ref/xamarinwatchos10/_._",
         "system.collections.concurrent.4.3.0.nupkg.sha512",
         "system.collections.concurrent.nuspec"
+      ]
+    },
+    "System.Collections.Immutable/7.0.0": {
+      "sha512": "dQPcs0U1IKnBdRDBkrCTi1FoajSTBzLcVTpjO4MBCMC7f4pDOIPzgBoX8JjG7X6uZRJ8EBxsi8+DR1JuwjnzOQ==",
+      "type": "package",
+      "path": "system.collections.immutable/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "README.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Collections.Immutable.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Collections.Immutable.targets",
+        "lib/net462/System.Collections.Immutable.dll",
+        "lib/net462/System.Collections.Immutable.xml",
+        "lib/net6.0/System.Collections.Immutable.dll",
+        "lib/net6.0/System.Collections.Immutable.xml",
+        "lib/net7.0/System.Collections.Immutable.dll",
+        "lib/net7.0/System.Collections.Immutable.xml",
+        "lib/netstandard2.0/System.Collections.Immutable.dll",
+        "lib/netstandard2.0/System.Collections.Immutable.xml",
+        "system.collections.immutable.7.0.0.nupkg.sha512",
+        "system.collections.immutable.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Console/4.3.0": {

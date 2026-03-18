@@ -19,7 +19,7 @@
     <RepositoryUrl>https://github.com/ImonEmmanuel/SentinelKafka.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression> 
-    <PackageReleaseNotes>Initial open-source release with robust Producer & Consumer policies, MSK token handling & DLQ automation hooks.</PackageReleaseNotes>
+    <PackageReleaseNotes>Initial open-source release with robust Producer and Consumer policies, MSK token handling and DLQ automation hooks.</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 

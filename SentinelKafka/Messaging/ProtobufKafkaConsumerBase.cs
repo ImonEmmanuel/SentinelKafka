@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Amazon.Runtime;
 using AWS.MSK.Auth;
 using Confluent.Kafka;
+using Confluent.Kafka.SyncOverAsync;
 using Confluent.SchemaRegistry;
 using Confluent.SchemaRegistry.Serdes;
 using Google.Protobuf;

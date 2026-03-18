@@ -1,33 +1,36 @@
-name: Publish NuGet Package
+name: Publish SentinelKafka Package to NuGet
 
 on:
-  release:
-    types: [published]
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Version number for the release (e.g. 1.0.5)'
+        required: true
+        default: '1.0.0'
 
 jobs:
-  build_and_publish:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
 
-      - name: Restore dependencies
-        run: dotnet restore SentinelKafka/SentinelKafka.csproj
+      - name: Build and Pack
+        run: |
+          cd SentinelKafka
+          dotnet build --configuration Release
+          
+          # This natively natively overrides the explicit csproj Version flag dynamically without dangerous script parsing!
+          dotnet pack --configuration Release --no-build -p:PackageVersion=${{ github.event.inputs.release_version }} -o ./nupkg
 
-      - name: Build
-        run: dotnet build SentinelKafka/SentinelKafka.csproj -c Release --no-restore
-
-      - name: Pack
-        run: dotnet pack SentinelKafka/SentinelKafka.csproj -c Release --no-build -o out
-
-      - name: Publish to NuGet
-        run: dotnet nuget push out/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      - name: Push to NuGet.org
+        run: |
+          cd SentinelKafka
+          dotnet nuget push ./nupkg/*.nupkg \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
