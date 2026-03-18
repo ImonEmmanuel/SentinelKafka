@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Amazon.Runtime;
@@ -72,9 +74,20 @@ public class KafkaProducer : IKafkaProducer, IDisposable
         
             if (actualTopic == null) return;
 
+            var headers = new Headers();
+            if (Activity.Current != null)
+            {
+                // Inject W3C OpenTelemetry Context into Kafka Message Headers directly!
+                headers.Add("traceparent", Encoding.UTF8.GetBytes(Activity.Current.Id!));
+                if (!string.IsNullOrEmpty(Activity.Current.TraceStateString))
+                {
+                    headers.Add("tracestate", Encoding.UTF8.GetBytes(Activity.Current.TraceStateString));
+                }
+            }
+
             var result = await _producer.ProduceAsync(
                 actualTopic,
-                new Message<string, string> { Key = key, Value = value });
+                new Message<string, string> { Key = key, Value = value, Headers = headers });
 
             _logger.LogInformation(
                 "Produced message to {Topic} [Partition: {Partition}, Offset: {Offset}] Key={Key} Size={Size} bytes",

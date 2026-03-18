@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -171,6 +173,27 @@ public abstract class KafkaConsumerBase<TMessage> : BackgroundService where TMes
                  return;
             }
 
+            // Extrapolate OpenTelemetry Activity safely via standard W3C Trace Context from Kafka Headers
+            var parentId = string.Empty;
+            var traceState = string.Empty;
+            if (cr.Message.Headers != null)
+            {
+                if (cr.Message.Headers.TryGetLastBytes("traceparent", out var traceIdBytes))
+                    parentId = Encoding.UTF8.GetString(traceIdBytes);
+                
+                if (cr.Message.Headers.TryGetLastBytes("tracestate", out var traceStateBytes))
+                    traceState = Encoding.UTF8.GetString(traceStateBytes);
+            }
+
+            using var activity = new Activity("KafkaConsumerBase.ProcessMessage");
+            if (!string.IsNullOrEmpty(parentId))
+            {
+                activity.SetParentId(parentId);
+                if (!string.IsNullOrEmpty(traceState))
+                    activity.TraceStateString = traceState;
+            }
+            activity.Start();
+
             try 
             {
                 await ProcessMessageAsync(message, ct);
@@ -208,7 +231,6 @@ public abstract class KafkaConsumerBase<TMessage> : BackgroundService where TMes
         }
         else
         {
-            // Be careful not to log PII in lower envs if possible, but user requested logging
             _logger.LogInformation("Consumed message: {Message} (Key: {Key}, Offset: {Offset})", 
                 cr.Message.Value, cr.Message.Key, cr.TopicPartitionOffset);
         }

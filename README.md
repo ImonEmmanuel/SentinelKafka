@@ -153,5 +153,34 @@ Register it gracefully as a Hosted Service so it automatically kicks off during 
 builder.Services.AddHostedService<OrderValidationConsumer>();
 ```
 
+### 4. Advanced Telemetry & Distributed Tracing (OpenTelemetry)
+The `SentinelKafka` SDK is engineered flawlessly for decoupled microservices architectures! Both `KafkaProducer` and `KafkaConsumerBase` explicitly intercept and sequentially propagate standard W3C `traceparent` and `tracestate` payload properties inline mapping to Kafka `Headers`! 
+
+This inherently means if your upstream HTTP API receives a request organically, the local HTTP `Activity.Current` Trace ID is natively injected synchronously onto the Kafka message object properties! This ultimately triggers a perfectly scoped, seamlessly correlated OpenTelemetry child `Activity` block on the Consumer side process dynamically ensuring tools natively monitoring your Datadog or AWS X-Ray environments successfully visualize the entire transaction saga bridging HTTP -> AWS MSK -> Background Consumer effortlessly!
+
+### 5. High-Throughput & Confluent Schema Registry (Protobuf/Avro)
+While natively serializing text utilizing `KafkaConsumerBase<TMessage>` paired cleanly with `System.Text.Json` performs brilliantly, strictly enforcing Binary schema formats precisely optimizing your payload structures implicitly like Protobuf natively averages dramatically faster deserialization speeds explicitly! 
+
+More imperatively: leveraging Confluent Schema registries structurally securely enforces rigid static contract schemas eliminating breaking application changes actively terminating payloads from deploying incorrectly! 
+
+To inherently leverage this logic within the SDK reliably, securely register your `SchemaRegistryUrl` directly globally on `appsettings.json`, utilize the natively registered `IProtobufKafkaProducer<>` DI abstraction effectively, or manually seamlessly inherit standard consumer instances natively extending the abstract `ProtobufKafkaConsumerBase<TMessage>` framework hook directly out-of-the-box:
+
+```csharp
+public class MyProtobufOrderConsumer : ProtobufKafkaConsumerBase<MyGeneratedProtoClass>
+{
+    protected override string TopicName => "OrdersTopicProto";
+    protected override string GroupIdName => "GroupProto";
+
+    public MyProtobufOrderConsumer(ILogger<MyProtobufOrderConsumer> logger, IOptions<KafkaOptions> options, IHostEnvironment env, IServiceScopeFactory scopeFactory)
+        : base(logger, options, env, scopeFactory) { }
+
+    protected override async Task ProcessMessageAsync(MyGeneratedProtoClass message, CancellationToken ct)
+    {
+        // Binary structures sequentially evaluating effectively!
+        Console.WriteLine($"Binary schema seamlessly successfully matching valid contract inherently: {message.Id}");
+    }
+}
+```
+
 ## License
 MIT
