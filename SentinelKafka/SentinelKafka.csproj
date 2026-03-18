@@ -16,8 +16,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     
-    <PackageProjectUrl>https://github.com/PeerpayDigitalAssest/InternalBackendLib</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/PeerpayDigitalAssest/InternalBackendLib.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/ImonEmmanuel/SentinelKafka</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ImonEmmanuel/SentinelKafka.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression> 
     <PackageReleaseNotes>Initial release with standardized logging and configuration.</PackageReleaseNotes>
