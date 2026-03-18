@@ -1,10 +1,32 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>Peerpay.Internal.Backend</RootNamespace>
+    
+    <PackageId>Peerpay.Internal.Backend</PackageId> 
+    <Version>1.0.0</Version>
+    <Authors>Imonmion Emmanuel Bright</Authors>
+    <Company>Peerpay</Company>
+    <Description>Peerpay Digital Assest Internal Backend Services SDK</Description>
+    <Product>InternalSDK</Product>
+    <PackageTags>logger;security;kafka;peerpay</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    
+    <PackageProjectUrl>https://github.com/PeerpayDigitalAssest/InternalBackendLib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/PeerpayDigitalAssest/InternalBackendLib.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression> 
+    <PackageReleaseNotes>Initial release with standardized logging and configuration.</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AWS.MSK.Auth" Version="1.1.2" />
